@@ -1,4 +1,6 @@
-from flask import Flask
+from flask import Flask, render_template
+from config import *
+
 app = Flask(__retroti__)
 
 @app.route('/')
