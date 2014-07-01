@@ -12,7 +12,7 @@ def index():
 
 @app.route('/file/<int:file_id>')
 def get_file(file_id):
-	url = "https://webcourses2c.test.instructure.com/api/v1/files/%s?access_token=13~0hAto3fEbmP1tKSKbU7ivAyQpD5DpYwNAsrAUsFQiuTwl9nB9fnwUrw1gY3YVtaQ" % file_id
+	url = "https://webcourses2c.test.instructure.com/api/v1/files/%s?access_token=blah" % file_id
 	r = requests.get(url)
 	data = r.json()
 	print data
