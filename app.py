@@ -6,7 +6,7 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
 	return render_template('index.html')
 
@@ -47,4 +47,4 @@ def file_list(course_id):
 	return files
 
 if __name__ == '__main__':
-	app.run()
+	app.run(host="162.243.3.12", port=5000)
