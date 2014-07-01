@@ -29,8 +29,8 @@ def get_file(file_id):
 def do_nes():
 
 	files = file_list(COURSE_ID)
-
-	return render_template('nes.html', files=files)
+	print files['files']
+	return render_template('nes.html', files=files['files'])
 
 @app.route('/file_list/<int:course_id>')
 def file_list(course_id):
@@ -43,8 +43,8 @@ def file_list(course_id):
 	
 	for f in data:
 		files['files'].append({'filename': f['filename'], 'id': f['id'], 'content-type':f['content-type']})
-	
-	return jsonify(**files)
+	print files
+	return files
 
 if __name__ == '__main__':
 	app.run()

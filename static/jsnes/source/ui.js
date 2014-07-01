@@ -180,8 +180,9 @@ if (typeof jQuery !== 'undefined') {
                 loadROM: function() {
                     var self = this;
                     self.updateStatus("Downloading...");
-                    $.ajax({
-                        url: escape(self.romSelect.val()),
+                    console.log(escape(self.romSelect.val()));
+		    $.ajax({
+                        url: self.romSelect.val(),
                         xhr: function() {
                             var xhr = $.ajaxSettings.xhr();
                             if (typeof xhr.overrideMimeType !== 'undefined') {
