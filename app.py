@@ -7,5 +7,5 @@ app = Flask(__retroti__)
 def index():
 	return "Emulator LTI"
 
-if __retroti__ = '__main__':
+if __retroti__ == '__main__':
 	app.run()
