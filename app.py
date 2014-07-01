@@ -1,4 +1,4 @@
-from flask import Flask, make_response
+from flask import Flask, make_response, jsonify
 from config import *
 
 import requests
@@ -25,6 +25,19 @@ def get_file(file_id):
 
 	return resp
 
+@app.route('/file_list/<int:course_id>')
+def file_list(course_id):
+	url ="%scourses/%s/files?access_token=%s" % (API_URL, course_id, API_KEY)
+	
+	r = requests.get(url)
+	data = r.json()
+	
+	files = {'files': []}
+	
+	for f in data:
+		files['files'].append({'filename': f['filename'], 'id': f['id'], 'content-type':f['content-type']})
+	
+	return jsonify(**files)
 
 if __name__ == '__main__':
 	app.run()
