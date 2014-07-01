@@ -25,6 +25,13 @@ def get_file(file_id):
 
 	return resp
 
+@app.route('/nes')
+def do_nes():
+
+	files = file_list(COURSE_ID)
+
+	return render_template('nes.html', files=files)
+
 @app.route('/file_list/<int:course_id>')
 def file_list(course_id):
 	url ="%scourses/%s/files?access_token=%s" % (API_URL, course_id, API_KEY)
