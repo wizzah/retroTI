@@ -1,4 +1,4 @@
-from flask import Flask, make_response, jsonify
+from flask import Flask, make_response, jsonify, render_template
 from config import *
 
 import requests
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return "Emulator LTI"
+	return render_template('index.html')
 
 @app.route('/file/<int:file_id>')
 def get_file(file_id):
